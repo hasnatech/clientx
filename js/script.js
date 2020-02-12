@@ -100,30 +100,46 @@ function generatePDF() {
     var x, y;
     x = 20; y = 0;
 
-    y += 20;
+    y += 40;
     doc.setFontType('bold');
     doc.setTextColor(27, 112, 147);
+    doc.setFontSize(28);
     doc.text(x, y, "Client X Response");
     doc.setTextColor(0, 0, 0);
-
+    doc.setFontSize(14);
+    
     $('.response').each(function (e) {
-        var ques = $.trim($(this).find(".question").text());
-        var ans = $(this).find("textarea").val();
 
-        y += 20;
-        doc.setFontType('bold');
-        doc.text(x, y, ques);
 
-        y += 10;
-        doc.setFontType('normal');
+        var ques = ($(this).find(".question").text().replace(/  /g,''));
+        var ans = $.trim($(this).find("textarea").val());
+
         var splitTitle = doc.splitTextToSize(ans, 170);
-        doc.text(x, y, splitTitle);
-        y += (splitTitle.length * 7)
 
-        if (y > 260) {
+
+        if (y + (splitTitle.length * 5) > 220) {
             y = 10;
             doc.addPage();
         }
+       
+ 
+        //console.log(ques);
+        y += 10;
+        doc.setFontType('bold');
+        
+        var splitQues = doc.splitTextToSize(ques, 170);
+        doc.text(x, y, splitQues);
+        y += (splitQues.length * 6)
+        //doc.text(x, y, ques);
+
+        //y += 20;
+        doc.setFontType('normal');
+        //doc.setFontSize(9);
+      
+        doc.text(x, y, splitTitle);
+        y += (splitTitle.length * 5)
+
+        
 
         //var dim = doc.getTextDimensions('Text');
         //console.log(dim);
