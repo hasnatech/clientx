@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cargill</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/print_only.css">
+</head>
+
+<body>
+    <div id="rotate_landscape">
+        <img src="images/rotate.gif" alt="">
+    </div>
+    <div id="body" ng-app>
+        <div class="title_bar" ng-init="maxcharacter = 320">
+            <div class="title">
+                <div class="text">
+                    L & D Innovation Model Canvas
+                </div>
+                <div class="buttons sb_1000">
+                    <img class="button_bg" src="images/bg.png">
+                    <img class="highlighter print" src="images/circle.svg">
+                    <img class="print print_icon" src="images/print.png">
+                    <img class="mail mail_icon" src="images/mail.png">
+                </div>
+            </div>
+            <div class="">
+                <div class="horizontal-panel">
+                    <div class="inputbox">
+                        <input type="text" id="name" placeholder="Name">
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" id="idea" placeholder="Idea">
+                    </div>
+
+                    <div class="inputbox">
+                        <div id="date"></div>
+                    </div>
+                    <div class="buttons sg_1000">
+                        <img class="button_bg"  src="images/bg.png">
+                        <img class="highlighter print" src="images/circle.svg">
+                        <img class="print print_icon" src="images/print.png">
+                        <img class="mail mail_icon" src="images/mail.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="flex">
+            <div class="flex-row top-row">
+
+                <div class="flex-row">
+
+                    <div class="flex-cell ">
+                        <div class="flip-card ">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front bg-red">
+                                    <div class="content">
+                                        <div class="flex-column">
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <img src="images/Problem_Icon.svg" alt="" class="icon">
+                                                    <h2>Problem</h2>
+                                                </div>
+                                            </div>
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <!--<img src="images/problem.svg" alt="" class="icon">-->
+                                                    <h2>Existing Alternatives</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back border-red">
+
+                                    <div class="content">
+                                        <div class="flex-column">
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <h2 class="text-red">Problem <span class="count"> {{ maxcharacter - problem_model.length }}</span></h2>
+                                                    <textarea ng-model="problem_model" maxlength="{{maxcharacter}}" class="text_input" id="problem_txt"
+                                                        placeholder="type your response"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <h2 class="text-red">Existing Alternatives <span class='count'>{{maxcharacter - existingAlternative_model.length}}</span></h2>
+                                                    <textarea ng-model="existingAlternative_model" maxlength="{{maxcharacter}}" id="existingAlternative_txt" class="text_input"
+                                                        placeholder="type your response"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-column">
+                        <div class="flex-cell ">
+                            <div class="flip-card ">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front bg-orange">
+                                        <div class="content">
+                                            <div class="width-full">
+                                                <img src="images/Solution_Icon-02.svg" alt="" class="icon">
+                                                <h2>Solution</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back border-orange">
+                                        <div class="content">
+                                            <div class="width-full">
+                                                <h2 class="text-orange">Solution <span class='count'>{{maxcharacter - solution_model.length}}</span></h2>
+                                                <textarea ng-model="solution_model" maxlength="{{maxcharacter}}" id="solution_txt" class="text_input"
+                                                    placeholder="type your response"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-cell ">
+                            <div class="flip-card ">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front bg-yellow1">
+                                        <div class="content">
+                                            <div class="width-full">
+                                                <img src="images/KeyMetrics_icon-02.svg" alt="" class="icon">
+                                                <h2>Key Metrics</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back border-yellow1">
+                                        <div class="content">
+                                            <div class="width-full">
+                                                <h2 class="text-yellow1">Key Metrics <span class='count'>{{maxcharacter - keyMetrics_model.length}}</span></h2>
+                                                <textarea ng-model="keyMetrics_model" maxlength="{{maxcharacter}}" id="keyMetrics_txt" class="text_input"
+                                                    placeholder="type your response"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-cell ">
+                        <div class="flip-card ">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front bg-yellow2">
+                                    <div class="content">
+                                        <div class="flex-column">
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <img src="images/UniqueValueProp_Icon-02.svg" alt="" class="icon">
+                                                    <h2>Unique Value Proposition</h2>
+                                                </div>
+                                            </div>
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <!--<img src="images/problem.svg" alt="" class="icon">-->
+                                                    <h2>High-Level Concept</h2>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back border-yellow2">
+                                    <div class="content">
+                                        <div class="flex-column">
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <h2 class="text-yellow1">Unique Value Proposition <span class='count'>{{maxcharacter - uvProposition_model.length}}</span></h2>
+                                                    <textarea ng-model="uvProposition_model" maxlength="{{maxcharacter}}" id="uvProposition_txt" class="text_input"
+                                                        placeholder="type your response"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <h2 class="text-yellow1">High-Level Concept <span class='count'>{{maxcharacter - hlConcept_model.length}}</span></h2>
+                                                    <textarea ng-model="hlConcept_model" maxlength="{{maxcharacter}}" id="hlConcept_txt" class="text_input"
+                                                        placeholder="type your response"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-column">
+                        <div class="flex-cell ">
+                            <div class="flip-card ">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front bg-green1">
+                                        <div class="content">
+
+                                            <div class="width-full">
+                                                <img src="images/CustomerRelation_Icon-02.svg" alt="" class="icon">
+                                                <h2>Customer Relation</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back border-green1">
+                                        <div class="content">
+                                            <div class="width-full">
+                                                <h2 class="text-green1">Customer Relation <span class='count'>{{maxcharacter - customer_relatmodel.length}}</span></h2>
+                                                <textarea ng-model="customer_relatmodel" maxlength="{{maxcharacter}}" id="customer_relation" class="text_input"
+                                                    placeholder="type your response"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-cell ">
+                            <div class="flip-card ">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front bg-green2">
+                                        <div class="content">
+
+                                            <div class="width-full">
+                                                <img src="images/Channels_Icon-02.svg" alt="" class="icon">
+                                                <h2>Channels</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back border-green2">
+                                        <div class="content">
+                                            <div class="width-full">
+                                                <h2 class="text-green2">Channels <span class='count'>{{maxcharacter - channels_model.length}}</span></h2>
+                                                <textarea ng-model="channels_model" maxlength="{{maxcharacter}}" id="channels_txt" class="text_input"
+                                                    placeholder="type your response"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-cell ">
+                        <div class="flip-card ">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front bg-green3">
+                                    <div class="content">
+                                        <div class="flex-column">
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <img src="images/CustomerSegment_Icon-02.svg" alt="" class="icon">
+                                                    <h2>Customer Segment</h2>
+                                                </div>
+                                            </div>
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <!--<img src="images/problem.svg" alt="" class="icon">-->
+                                                    <h2>Early Adopters</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back border-green3">
+                                    <div class="content">
+                                        <div class="flex-column">
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <h2 class="text-green3">Customer Segment <span class='count'>{{maxcharacter - customerSegments_model.length}}</span></h2>
+                                                    <textarea ng-model="customerSegments_model" maxlength="{{maxcharacter}}" id="customerSegments_txt" class="text_input"
+                                                        placeholder="type your response"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="flex-cell">
+                                                <div class="width-full">
+                                                    <h2 class="text-green3">Early Adopters <span class='count'>{{maxcharacter - earlyAdopters_model.length}}</span></h2>
+                                                    <textarea ng-model="earlyAdopters_model" maxlength="{{maxcharacter}}" id="earlyAdopters_txt" class="text_input"
+                                                        placeholder="type your response"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-row bottom-row">
+                <div class="flex-cell ">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-green4">
+                                <div class="content">
+                                    <div class="width-full">
+                                        <img src="images/CostStructure_Icon-02.svg" alt="" class="icon icon_right">
+                                        <h2>Cost Structure</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card-back border-green4">
+                                <div class="content">
+                                    <div class="width-full">
+                                        <h2 class="text-green4">Cost Structure <span class='count'>{{maxcharacter - costStructure_tmodel.length}}</span></h2>
+                                        <textarea ng-model="costStructure_tmodel" maxlength="{{maxcharacter}}" id="costStructure_text" class="text_input"
+                                            placeholder="type your response"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-cell ">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-blue">
+                                <div class="content">
+                                    <div class="width-full">
+                                        <img src="images/RevenueStream_Icon-02.svg" alt="" class="icon icon_right">
+                                        <h2>Revenue Stream</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card-back border-blue">
+                                <div class="content">
+                                    <div class="width-full">
+                                        <h2 class="text-blue">Revenue Stream <span class='count'>{{maxcharacter - revenueStream_model.length}}</span></h2>
+                                        <textarea ng-model="revenueStream_model" maxlength="{{maxcharacter}}" id="revenueStream_txt" class="text_input"
+                                            placeholder="type your response"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/script.js"></script>
+</html>

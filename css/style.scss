@@ -1,0 +1,214 @@
+$red: #9e2a2f;
+$orange: #be531c;
+$yellow1: #cf7f00;
+$yellow2: #daaa00;
+$green1: #abad23;
+$green2: #658d1b;
+$green3: #279989;
+$green4: #007681;
+$blue: #005f86;
+
+$brand-color: $blue;
+
+.bg-red {
+    background-color: $red;
+}
+
+.border-red {
+    border: 1px solid $red;
+}
+
+.text-red {
+    color: $red;
+}
+
+.bg-orange {
+    background-color: $orange;
+}
+
+.border-orange {
+    border: 1px solid $orange;
+}
+
+.text-orange {
+    color: $orange;
+}
+
+.bg-yellow1 {
+    background-color: $yellow1;
+}
+
+.border-yellow1 {
+    border: 1px solid $yellow1;
+}
+
+.text-yellow1 {
+    color: $yellow1;
+}
+
+.bg-yellow2 {
+    background-color: $yellow2;
+}
+
+.border-yellow2 {
+    border: 1px solid $yellow2;
+}
+
+.text-yellow2 {
+    color: $yellow2;
+}
+
+.bg-green1 {
+    background-color: $green1;
+}
+
+.border-green1 {
+    border: 1px solid $green1;
+}
+
+.text-green1 {
+    color: $green1;
+}
+
+.bg-green2 {
+    background-color: $green2;
+}
+
+.border-green2 {
+    border: 1px solid $green2;
+}
+
+.text-green2 {
+    color: $green2;
+}
+
+.bg-green3 {
+    background-color: $green3;
+}
+
+.border-green3 {
+    border: 1px solid $green3;
+}
+
+.text-green3 {
+    color: $green3;
+}
+
+.bg-green4 {
+    background-color: $green4;
+}
+
+.border-green4 {
+    border: 1px solid $green4;
+}
+
+.text-green4 {
+    color: $green4;
+}
+
+.bg-blue {
+    background-color: $blue;
+}
+
+.border-blue {
+    border: 1px solid $blue;
+}
+
+.text-blue {
+    color: $blue;
+}
+
+
+
+html,
+body {
+    margin: 0px;
+}
+
+.hero {
+    margin: 0 -80px;
+    
+}
+
+.side-border {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    box-shadow: 0 0 3px 3px #eee;
+    padding: 0 80px;
+}
+
+.section {
+    padding: 100px 0;
+    &.odd{
+        background-color: #f3f3f3;
+        margin: 10px -80px;
+        padding: 80px 80px;
+    }
+}
+
+.full-width {
+    width: 100%;
+}
+.action{
+    /*background-color: #fff;*/
+    z-index: 1;
+    position: fixed;
+    right: 0px;
+
+    .icon{
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        background-color: #fff;
+        cursor: pointer;
+        &:hover{
+            background-color: rgba(31,78,121,.15);
+        }
+    }
+}
+.response {
+    background-color: #ddd;
+
+    .question {
+        padding: 10px;
+        font-weight: bold;
+        color: $brand-color;
+        .icon {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
+.text-brand {
+    color:$brand-color;
+}
+
+.form-control:focus{
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+}
+
+.card1{
+    position: relative;
+    .icon{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 44px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(31,78,121,.25)
+    }
+    .card-footer1{
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        padding: 10px;
+        color: #fff;
+        background-color: rgba(31,78,121,.75)
+    }
+}
