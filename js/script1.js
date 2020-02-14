@@ -94,25 +94,53 @@ $().ready(function () {
     $('textarea').autoHeight();
 })
 function generatePDF() {
-    var response = [];
-    $('.response').each(function (e) {
-        var ques = ($(this).find(".question").text().replace(/  /g,''));
-        var ans = $.trim($(this).find("textarea").val());
-        response.push({
-            ques: ques,
-            ans:ans
-        });
-    });
-
-    console.log(response[0].ques );
-    console.log($("#p1").text());
 
     var doc = new jsPDF();
 
     var x, y;
     x = 20; y = 0;
 
-    //doc.save('clientx.pdf');
+    y += 40;
+    doc.setFontType('bold');
+    doc.setTextColor(27, 112, 147);
+    doc.setFontSize(28);
+    doc.text(x, y, "Client X Response");
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(14);
+    
+    $('.response').each(function (e) {
+
+
+        var ques = ($(this).find(".question").text().replace(/  /g,''));
+        var ans = $.trim($(this).find("textarea").val());
+
+        var splitTitle = doc.splitTextToSize(ans, 170);
+
+
+        if (y + (splitTitle.length * 5) > 220) {
+            y = 10;
+            doc.addPage();
+        }
+ 
+        y += 10;
+        doc.setFontType('bold');
+        
+        var splitQues = doc.splitTextToSize(ques, 170);
+        doc.text(x, y, splitQues);
+        y += (splitQues.length * 6)
+        doc.setFontType('normal');
+      
+        doc.text(x, y, splitTitle);
+        y += (splitTitle.length * 5)
+
+        //var dim = doc.getTextDimensions('Text');
+        //console.log(dim);
+
+        //y += 20;
+        //doc.text('Hi How are you', x, y, 'right');
+
+    });
+    doc.save('clientx.pdf');
 
 
     /*var elementHTML = $("#content").html();
