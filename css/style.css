@@ -111,6 +111,10 @@ body {
   margin: 0px;
 }
 
+.white_bg {
+  background-color: #ffffff;
+}
+
 .hero {
   margin: 0 -80px;
 }
@@ -131,6 +135,10 @@ body {
   background-color: #f3f3f3;
   margin: 10px -80px;
   padding: 80px 80px;
+}
+
+.bg-grey {
+  background-color: #f3f3f3;
 }
 
 .full-width {
@@ -211,5 +219,9 @@ body {
   padding: 10px;
   color: #fff;
   background-color: rgba(31, 78, 121, 0.75);
+}
+
+#lesson1 {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 /*# sourceMappingURL=style.css.map */
