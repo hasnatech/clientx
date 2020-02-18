@@ -32,7 +32,13 @@ $().ready(function () {
     })
 
     $("#pdf").click(function () {
-        generatePDF();
+        
+        if(BrowserDetection() == "IE"){
+            alert("This feature is not supported in Internet Explorer. Please use Chrome or Microsoft Edge to print PDF.");
+        }else {
+            generatePDF();
+        }
+        
     })
 
 
@@ -115,11 +121,12 @@ function generatePDF() {
     doc.setFont('helvetica')
     doc.setTextColor(27, 112, 147);
     doc.setFontSize(12);
+    //console.log(doc);
     var splitText = doc.splitTextToSize(response[0].ques, 170);
     doc.text(x, y, splitText);
 
     y += (splitText.length * 4)
-    
+
     doc.setTextColor(0, 0, 0);
     doc.setFontSize(10);
     var splitText = doc.splitTextToSize(response[0].ans, 170);
@@ -152,9 +159,9 @@ function generatePDF() {
     doc.setFontSize(12);
     var splitText = doc.splitTextToSize(response[2].ques, 170);
     doc.text(x, y, splitText);
-    
+
     y += (splitText.length * 4)
-    
+
     doc.setTextColor(0, 0, 0);
     doc.setFontSize(10);
     var splitText = doc.splitTextToSize(response[2].ans, 170);
@@ -201,9 +208,9 @@ function generatePDF() {
         margin);*/
 
 }
-function checkpageHeight(pdf, y, newY){
+function checkpageHeight(pdf, y, newY) {
     //console.log(y + newY);
-    if(y + newY > 260){
+    if (y + newY > 260) {
         pdf.addPage();
         return 20;
     }
@@ -237,6 +244,46 @@ function getImageFromCanvas(canvas, pdf) {
 
 }
 
+
+function BrowserDetection() {
+    var result;
+    //console.log(navigator.userAgent);
+    //Check if browser is IE
+    if(!!window.MSInputMethodContext && !!document.documentMode)
+    {
+        result = "IE";
+    }
+    else if (navigator.userAgent.search("MSIE") >= 0) {
+        // insert conditional IE code here
+        result = "IE";
+    }
+    //Check if browser is Chrome
+    else if (navigator.userAgent.search("Edge") >= 0) {
+        // insert conditional Chrome code here
+        result = "Edge";
+    }
+    //Check if browser is Chrome
+    else if (navigator.userAgent.search("Chrome") >= 0) {
+        // insert conditional Chrome code here
+        result = "Chrome";
+    }
+    //Check if browser is Firefox 
+    else if (navigator.userAgent.search("Firefox") >= 0) {
+        // insert conditional Firefox Code here
+        result = "Firefox";
+    }
+    //Check if browser is Safari
+    else if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) {
+        // insert conditional Safari code here
+        result = "Safari";
+    }
+    //Check if browser is Opera
+    else if (navigator.userAgent.search("Opera") >= 0) {
+        // insert conditional Opera code here
+        result = "Opera";
+    }
+    return result;
+}
 
 
 jQuery.fn.extend({
